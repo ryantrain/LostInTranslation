@@ -42,8 +42,8 @@ public class CountryCodeConverter {
                 String line = iterator.next();
                 String[] parts = line.split("\t");
                 // TODO Task B: use parts to populate the instance variables
-                this.countryCodeToCountry.put(parts[1], parts[0]);
-                this.countryToCountryCode.put(parts[0], parts[1]);
+                this.countryCodeToCountry.put(parts[2].toLowerCase(), parts[0]);
+                this.countryToCountryCode.put(parts[0], parts[2].toLowerCase());
             }
         }
         catch (IOException | URISyntaxException ex) {
@@ -59,6 +59,7 @@ public class CountryCodeConverter {
      */
     public String fromCountryCode(String code) {
         // TODO Task B: update this code to use an instance variable to return the correct value
+        code = code.toLowerCase();
         return this.countryCodeToCountry.get(code);
     }
 

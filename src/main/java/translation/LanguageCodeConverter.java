@@ -43,10 +43,9 @@ public class LanguageCodeConverter {
             while (iterator.hasNext()) {
                 String line = iterator.next();
                 // TODO Task A: use line to populate the instance variables
-                String[] parts = line.split(",");
-                this.languageCodeToLanguage.put(parts[0], parts[1]);
-                this.languageToLanguageCode.put(parts[1], parts[0]);
-                System.out.println(parts.toString());
+                String[] parts = line.split("\t");
+                this.languageCodeToLanguage.put(parts[1].trim(), parts[0].trim());
+                this.languageToLanguageCode.put(parts[0].trim(), parts[1].trim());
             }
 
         } catch (IOException | URISyntaxException ex) {
